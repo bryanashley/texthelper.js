@@ -1,10 +1,10 @@
 (function(window, undefined) {
 	// Useful whitespace regEx available throughout texthelperjs.
 	var regSpace     = /\s+/g,
-		regTrimLeft  = /^\s+/,
-		regTrimRight = /\s+$/,
-		regTrimBoth  = /(^\s+|\s+$)/g,
-		regTrimLarge = /[\t\n\r]/g;
+	    regTrimLeft  = /^\s+/,
+	    regTrimRight = /\s+$/,
+	    regTrimBoth  = /(^\s+|\s+$)/g,
+	    regTrimLarge = /[\t\n\r]/g;
 
 	var texthelper = {
 		version: '0',
@@ -18,6 +18,18 @@
 		},
 
 		highLight: function(text, keyWord) {
+
+		},
+
+		wordWrap: function(text, lineWidth) {
+
+		},
+
+		htmlEscape: function(text) {
+
+		},
+
+		html: function(text) {
 
 		}
 	};
