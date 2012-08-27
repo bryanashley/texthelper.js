@@ -18,8 +18,10 @@ var test2    = document.getElementsByTagName('div')[0];
 var htmlText = test2.innerHTML;
 
 for(var i = 0; i < test.length; i++) {
-	test[i].textContent = _text.truncate(test[i].textContent, 10);
+	//test[i].textContent = _text.truncate(test[i].textContent, 10);
 	//test[i].textContent = _text.excerpt(test[i].textContent, 'works', 15);
+	test[i].innerHTML = _text.highlight(test[i].textContent, 'test');
+
 }
 
 //test2.innerHTML = _text.htmlEscape(htmlText);

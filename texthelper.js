@@ -60,10 +60,7 @@
 			return text;
 		},
 		highlight: function(text, keyword, className) {
-			var i 		  = 0,
-				j 		  = 0,
-				k         = 0,
-				regEx     = new RegExp(keyword, "g"),
+			var regEx     = new RegExp(keyword, "g"),
 				sameChars = 0,
 				openTag   = "",
 				closeTag  = "",
