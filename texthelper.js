@@ -30,6 +30,7 @@
 					if(i != length) {
 						truncated += sentence.charAt(i);
 					} else {
+						truncated = this.trimBoth(truncated);
 						truncated += omission;
 					}
 				}
