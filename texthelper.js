@@ -42,16 +42,15 @@
                 text      = this.trimBoth(text),
 			    excerpt   = '',
 			    radius    = radius || 10,
-			    intLength = interest.toString().length;
 			    intStart  = text.indexOf(interest);
-			    excLength = intLength + radius * 2,
+			    excLength = interest.length + radius * 2,
 			    excLeft   = '',
 			    excRight  = '';
 
 			if(excLength < text.length && intStart > -1) {
 			    for( ; i <= radius; i++) {
 			    	excLeft  += text.charAt((intStart - (radius + 1)) + i);
-			    	excRight += text.charAt((intStart + intLength - 1) + i);
+			    	excRight += text.charAt((intStart + interest.length - 1) + i);
 			    }
 
 			    excerpt += excLeft + interest + excRight;
