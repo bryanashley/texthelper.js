@@ -13,7 +13,7 @@
 			var i         = 0,
 			    truncated = '',
 			    sentence  = this.trimBoth(text),
-			    omission  = omission || '...';
+			    omission  = this.trimBoth(omission) || '...';
 
 			if(typeof length === 'number') {
 				length = parseInt(length);
@@ -38,7 +38,27 @@
 		},
 
 		excerpt: function(text, interest, radius) {
+			var i         = 1,
+                text      = this.trimBoth(text),
+			    excerpt   = '',
+			    radius    = radius || 10,
+			    intLength = interest.toString().length;
+			    intStart  = text.indexOf(interest);
+			    excLength = intLength + radius * 2,
+			    excLeft   = '',
+			    excRight  = '';
 
+			if(excLength < text.length && intStart > -1) {
+			    for( ; i <= radius; i++) {
+			    	excLeft  += text.charAt((intStart - (radius + 1)) + i);
+			    	excRight += text.charAt((intStart + intLength - 1) + i);
+			    }
+
+			    excerpt += excLeft + interest + excRight;
+			    return this.trimBoth(excerpt);
+			}
+
+			return text;
 		},
 
 		highLight: function(text, keyWord) {
@@ -59,10 +79,10 @@
 
 		// Helpful utility methods.
 		trimBoth: function(text) {
-			return text.toString().replace(regwsBoth, '');
+			return text != undefined ? text.toString().replace(regwsBoth, '') : false;
 		}
 	};
 
 	// Make texthelper available throughout the global namespace.
-	window.texthelper = texthelper;
+	window.texthelper = window._text = texthelper;
 })(window);
