@@ -59,9 +59,28 @@
 
 			return text;
 		},
+		highlight: function(text, keyword, className) {
+			var i 		  = 0,
+				j 		  = 0,
+				k         = 0,
+				regEx     = new RegExp(keyword, "g"),
+				sameChars = 0,
+				openTag   = "",
+				closeTag  = "",
+				className = this.trimBoth(className) || "",
+				text 	  = this.trimBoth(text),
+				keyword   = this.trimBoth(keyword);
 
-		highlight: function(text, keyword) {
-
+			if(className.length > 0){
+				openTag = "<span class="+className+">";
+				closeTag = "</span>";
+			}
+			else{
+				openTag = "<mark>";
+				closeTag = "</mark>";
+			}
+			text = text.replace(regEx, openTag+keyword+closeTag);
+			return text;
 		},
 
 		wordWrap: function(text, lineWidth) {
