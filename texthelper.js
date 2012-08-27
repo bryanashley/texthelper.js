@@ -69,7 +69,22 @@
 		},
 
 		htmlEscape: function(text) {
+			text = this.trimBoth(text);
 
+			return text = text.replace(/(<|>|&|"|')/g, function(match) {
+				switch (match) {
+					case '<':
+						return match = '&lt;';
+					case '>':
+						return match = '&gt;';
+					case '&':
+						return match = '&amp;';
+					case '"': 
+						return match = '&quot;';
+					case "'":
+						return match = '&apos;';
+				}
+			});
 		},
 
 		html: function(text) {
