@@ -12,7 +12,7 @@
 		truncate: function(text, length, omission) {
 			var i         = 0,
 			    truncated = '',
-			    sentence  = this.trimString(text);,
+			    sentence  = this.trimBoth(text);,
 			    omission  = omission || '...';
 
 			if(typeof length === 'number') {
