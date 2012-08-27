@@ -18,7 +18,7 @@
 			if(typeof length === 'number') {
 				length = parseInt(length);
 			} else {
-				return false;
+				return text;
 			}
 
 			if(sentence.length > length) {
@@ -42,7 +42,7 @@
                 text      = this.trimBoth(text),
 			    excerpt   = '',
 			    radius    = radius || 10,
-			    intStart  = text.indexOf(interest);
+			    intStart  = text.indexOf(interest),
 			    excLength = interest.length + radius * 2,
 			    excLeft   = '',
 			    excRight  = '';
@@ -60,7 +60,7 @@
 			return text;
 		},
 
-		highLight: function(text, keyWord) {
+		highlight: function(text, keyword) {
 
 		},
 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+	<title>texthelper.js</title>
+	<script src="texthelper.js" type="text/javascript"></script>
+</head>
+<body>
+	<p>This is a test. I hope it works!</p>
+	<p>This is a test. I hope it works!</p>
+	<p>This is a test. I hope it works!</p>
+	<p>This is a test. I hope it works!</p>
+	<p>This is a test. I hope it works!</p>
+	<p>This is a test. I hope it works!</p>
+
+<script>
+var test = document.getElementsByTagName('p');
+for(var i = 0; i < test.length; i++) {
+	test[i].textContent = _text.truncate(test[i].textContent, 10);
+	//test[i].textContent = _text.excerpt(test[i].textContent, 'works', 15);
+}
+</script>
+</body>
+</html>
