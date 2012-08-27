@@ -18,7 +18,7 @@
 			if(typeof length === 'number') {
 				length = parseInt(length);
 			} else {
-				return false;
+				return text;
 			}
 
 			if(sentence.length > length) {
@@ -59,7 +59,6 @@
 
 			return text;
 		},
-
 		highlight: function(text, keyword, className) {
 			var i 		  = 0,
 				j 		  = 0,
