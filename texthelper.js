@@ -12,7 +12,7 @@
 		truncate: function(text, length, omission) {
 			var i         = 0,
 			    truncated = '',
-			    sentence  = this.trimBoth(text);,
+			    sentence  = this.trimBoth(text),
 			    omission  = omission || '...';
 
 			if(typeof length === 'number') {
@@ -59,8 +59,8 @@
 
 		// Helpful utility methods.
 		trimBoth: function(text) {
-			retrun text.toString().replace(regwsBoth, '');
-		},
+			return text.toString().replace(regwsBoth, '');
+		}
 	};
 
 	// Make texthelper available throughout the global namespace.
