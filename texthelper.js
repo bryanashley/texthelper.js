@@ -38,7 +38,7 @@
 			}
 		},
 
-		excerpt: function(text, interest, radius) {
+		excerpt: function(text, interest, radius	) {
 			var i         = 1,
                 text      = this.trimBoth(text),
 			    excerpt   = '',
@@ -71,7 +71,7 @@
 				keyword   = this.trimBoth(keyword);
 
 			if(className.length > 0){
-				openTag = "<span class='"+className+"''>";
+				openTag = "<span class='"+className+"'>";
 				closeTag = "</span>";
 			}
 			else{
