@@ -7,7 +7,7 @@
 	    regwsLarge  = /[\t\n\r]/g;
 
 	var texthelper = {
-		version: '0',
+		version: '1.0',
 
 		truncate: function(text, length, omission) {
 			var i         = 0,
@@ -60,6 +60,7 @@
 
 			return text;
 		},
+
 		highlight: function(text, keyword, className) {
 			var regEx     = new RegExp(keyword, "g"),
 				sameChars = 0,
@@ -103,6 +104,7 @@
 				return editedText;
 			}
 		},
+
 		htmlEscape: function(text) {
 			var text = this.trimBoth(text);
 			return text = text.replace(/(<|>|&|"|')/g, function(match) {
@@ -120,6 +122,7 @@
 				}
 			});
 		},
+
 		htmlGenerate: function(name, attributes, contents) {
 			var autoclose = ['img', 'iframe', 'br'],
 				tag 	  = "<" + name;
@@ -136,6 +139,7 @@
 	        }
 	        return tag;
 		},
+
 		// Helpful utility methods.
 		trimBoth: function(text) {
 			return text != undefined ? text.toString().replace(regwsBoth, '') : false;
