@@ -34,7 +34,7 @@
 						truncated += omission;
 					}
 				}
-				return truncated;
+				return this.trimBoth(truncated);
 			}
 		},
 
@@ -70,7 +70,7 @@
 				keyword   = this.trimBoth(keyword);
 
 			if(className.length > 0){
-				openTag = "<span class="+className+">";
+				openTag = "<span class='"+className+"''>";
 				closeTag = "</span>";
 			}
 			else{
@@ -82,12 +82,29 @@
 		},
 
 		wordWrap: function(text, lineWidth) {
-
+			var text  	   = text,
+				i 	  	   = lineWidth,
+				textLength = text.length,
+				editedText = text,
+				difference = 0;
+			if(lineWidth > 0){
+				for( ; i < textLength; i++){
+					if(text.charAt(i) == " "){
+						difference = editedText.length - textLength;
+						test = editedText.split("");
+						test.splice(i+difference, 0, "<br/>");
+						editedText = test.join("");
+						i += lineWidth;
+					}
+				}
+				return editedText;
+			}
+			else{
+				return editedText;
+			}
 		},
-
 		htmlEscape: function(text) {
-			text = this.trimBoth(text);
-
+			var text = this.trimBoth(text);
 			return text = text.replace(/(<|>|&|"|')/g, function(match) {
 				switch (match) {
 					case '<':
@@ -103,11 +120,22 @@
 				}
 			});
 		},
+		htmlGenerate: function(name, attributes, contents) {
+			var autoclose = ['img', 'iframe', 'br'],
+				tag 	  = "<" + name;
+				contents  = contents ? contents : "";
 
-		html: function(text) {
+			for(key in attributes){
+        		tag += " " + key + "='" + attributes[key] + "'";
+	        }
 
+	        if(autoclose.indexOf(name) >= 0){
+	            tag += " />"
+	        } else {
+	            tag += ">" + contents + "</" + name + ">";
+	        }
+	        return tag;
 		},
-
 		// Helpful utility methods.
 		trimBoth: function(text) {
 			return text != undefined ? text.toString().replace(regwsBoth, '') : false;
