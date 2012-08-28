@@ -33,9 +33,9 @@ Texthelper.js is a library of useful texthelper functions for filtering, formatt
     Texthelper.htmlEscape("<div> Example html content <br /> </div>");
     returns: "&lt;div&gt; Example html content &lt;br /&gt; &lt;/div&gt;"
 # htmlGenerate: #
-    _text.htmlGenerate("div", {class: "content", id: "123", style: "float: left;"}, "<h1> Main Content</h1>");
+    Texthelper.htmlGenerate("div", {class: "content", id: "123", style: "float: left;"}, "<h1> Main Content</h1>");
     returns: "<div class='content' id='123' style='float: left;'><h1> Main Content</h1></div>"
-    _text.htmlGenerate("img", {src: "http://t1.gstatic.com/images?q=tbn:ANd9GcRI-OasQdJqJbQqMNLpKa99tlPvLLGyju-Z7nYM0reVe4dnfVkBOg&t=1"});
+    Texthelper.htmlGenerate("img", {src: "http://t1.gstatic.com/images?q=tbn:ANd9GcRI-OasQdJqJbQqMNLpKa99tlPvLLGyju-Z7nYM0reVe4dnfVkBOg&t=1"});
     returns: "<img src='http://t1.gstatic.com/images?q=tbn:ANd9GcRI-OasQdJqJbQqMNLpKa99tlPvLLGyju-Z7nYM0reVe4dnfVkBOg&t=1' />"
 
     
