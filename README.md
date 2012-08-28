@@ -12,30 +12,30 @@ Texthelper.js is a library of useful texthelper functions for filtering, formatt
 
 # Using Texthelper.js - A code sample#
 # Truncate: #
-    Texthelper.truncate("This is an example", 5);
+    texthelper.truncate("This is an example", 5);
     returns: "This..."
-    Texthelper.truncate("This is an example", 5, "!");
+    texthelper.truncate("This is an example", 5, "!");
     returns: "This!"
 # Excerpt: #
-    Texthelper.excerpt("This is an example", "an", 5);
+    texthelper.excerpt("This is an example", "an", 5);
     returns: "s is an exam"
-    Texthelper.excerpt("The quick brown fox jumps over the lazy dog", "fox", 6);
+    texthelper.excerpt("The quick brown fox jumps over the lazy dog", "fox", 6);
     returns: "brown fox jumps"
 # Highlight: #
-    Texthelper.highlight("This is an example. A code example helps learn how to use a function properly.", "example");
+    texthelper.highlight("This is an example. A code example helps learn how to use a function properly.", "example");
     returns: "This is an <mark>example</mark>. A code <mark>example</mark> helps learn how to use a function properly."
-    Texthelper.highlight("This is an example.", "example", "highlight");
+    texthelper.highlight("This is an example.", "example", "highlight");
     returns: "This is an <span class='highlight''>example</span>."
 # wordWrap: #
-    Texthelper.wordWrap("This is an example.", 5);
+    texthelper.wordWrap("This is an example.", 5);
     returns: "This is<br/> an example."
 # htmlEscape: #
-    Texthelper.htmlEscape("<div> Example html content <br /> </div>");
+    texthelper.htmlEscape("<div> Example html content <br /> </div>");
     returns: "&lt;div&gt; Example html content &lt;br /&gt; &lt;/div&gt;"
 # htmlGenerate: #
-    Texthelper.htmlGenerate("div", {class: "content", id: "123", style: "float: left;"}, "<h1> Main Content</h1>");
+    texthelper.htmlGenerate("div", {class: "content", id: "123", style: "float: left;"}, "<h1> Main Content</h1>");
     returns: "<div class='content' id='123' style='float: left;'><h1> Main Content</h1></div>"
-    Texthelper.htmlGenerate("img", {src: "http://t1.gstatic.com/images?q=tbn:ANd9GcRI-OasQdJqJbQqMNLpKa99tlPvLLGyju-Z7nYM0reVe4dnfVkBOg&t=1"});
+    texthelper.htmlGenerate("img", {src: "http://t1.gstatic.com/images?q=tbn:ANd9GcRI-OasQdJqJbQqMNLpKa99tlPvLLGyju-Z7nYM0reVe4dnfVkBOg&t=1"});
     returns: "<img src='http://t1.gstatic.com/images?q=tbn:ANd9GcRI-OasQdJqJbQqMNLpKa99tlPvLLGyju-Z7nYM0reVe4dnfVkBOg&t=1' />"
 
     
