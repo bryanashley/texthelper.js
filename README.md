@@ -1,4 +1,4 @@
-# Texthelper.js #
+# Texthelper.js V.1.0 #
 
 Texthelper.js is a library of useful texthelper functions for filtering, formatting and transforming strings and manipulating an html view.
 
