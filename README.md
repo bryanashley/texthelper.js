@@ -4,7 +4,7 @@ Texthelper.js is a library of useful texthelper functions for filtering, formatt
 
 # Features #
 * Truncate: Takes a string and a maximum length and an optional omission, cuts the string off at the maximum length and appends the omission (if provided) to the end of the string. Returns the newly truncated string.
-* Excerpt: Takes a string, a section of that string and a radius, at the first occurrence of the section the function selects that occurrence with the supplied radius amount of characters to either side of the section.
+* Excerpt: Extracts an excerpt from text that matches the first instance of phrase. The radius option expands the excerpt on each side of the first occurrence of phrase by the number of characters defined in radius
 * Highlight: Takes a string, a word within that string, and an optional class name and highlights every occurrence of that word within the string with either a span tag with the class name if provided, otherwise uses the html5 mark tag.
 * wordWrap: Takes a string and a line width, this method then breaks the line at the first white space that does not exceed line width.
 * htmlEscape: This method takes a provided string and breaks any html into html_escape characters
