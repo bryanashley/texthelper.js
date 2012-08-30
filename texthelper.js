@@ -109,7 +109,9 @@
 			contents      = contents ? contents : "";
 
 			for(key in attributes){
-				tag += " " + key + "='" + attributes[key] + "'";
+				if(attributes.hasOwnProperty(key)){
+					tag += " " + key + "='" + attributes[key] + "'";
+				}
 			}
 
 			if(autoclose.indexOf(name) >= 0){
