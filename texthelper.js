@@ -13,30 +13,17 @@
 			var i         = 0,
 			truncated     = '',
 			sentence      = this.trimBoth(text),
-			omission      = this.trimBoth(omission) || '...';
-
-			if(typeof length === 'number') {
-				length = parseInt(length);
-			} 
-			else {
-				return text;
+			append 		  = ( omission == null ) ? "..." : omission;
+			if(length > 0){
+				truncated = text.substring(0, length-1) + append 
 			}
-
-			if(sentence.length > length) {
-				for( ; i <= length; i++) {
-					if(i === sentence.length) {
-						break;	
-					}
-					if(i != length) {
-						truncated += sentence.charAt(i);
-					} 
-					else {
-						truncated = this.trimBoth(truncated);
-						truncated += omission;
-					}
-				}
-				return this.trimBoth(truncated);
+			else if(length < 0){
+				truncated = append + text.substring(length*-1, sentence.length)
 			}
+			else{
+				truncated = sentence;
+			}
+			return truncated;
 		},
 
 		excerpt: function(text, interest, radius	) {
