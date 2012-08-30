@@ -7,7 +7,7 @@
 	regwsLarge  = /[\t\n\r]/g;
 
 	var texthelper = {
-		version: '1.0',
+		version: '0.2',
 
 		truncate: function(text, length, omission) {
 			var truncated = '',
