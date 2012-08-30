@@ -10,8 +10,7 @@
 		version: '1.0',
 
 		truncate: function(text, length, omission) {
-			var i         = 0,
-			truncated     = '',
+			var truncated = '',
 			sentence      = this.trimBoth(text),
 			append 		  = ( omission == null ) ? "..." : omission;
 			if(length > 0){
