@@ -1,19 +1,19 @@
 (function(window, undefined) {
 // Useful whitespace regEx available throughout texthelperjs.
 	var regwsGlobal = /\s+/g,
-		regwsLeft   = /^\s+/,
-		regwsRight  = /\s+$/,
-		regwsBoth   = /(^\s+|\s+$)/g,
-		regwsLarge  = /[\t\n\r]/g;
+	regwsLeft   = /^\s+/,
+	regwsRight  = /\s+$/,
+	regwsBoth   = /(^\s+|\s+$)/g,
+	regwsLarge  = /[\t\n\r]/g;
 
 	var texthelper = {
 		version: '1.0',
 
 		truncate: function(text, length, omission) {
 			var i         = 0,
-			truncated = '',
-			sentence  = this.trimBoth(text),
-			omission  = this.trimBoth(omission) || '...';
+			truncated     = '',
+			sentence      = this.trimBoth(text),
+			omission      = this.trimBoth(omission) || '...';
 
 			if(typeof length === 'number') {
 				length = parseInt(length);
@@ -41,12 +41,12 @@
 
 		excerpt: function(text, interest, radius	) {
 			var index     = 0,
-			text      = this.trimBoth(text),
-			excerpt   = '',
-			radius    = radius || 10
-			keyword   = interest
-			start	  = 0,
-			stop	  = 0;
+			text          = this.trimBoth(text),
+			excerpt       = '',
+			radius        = radius || 10
+			keyword       = interest
+			start	      = 0,
+			stop	      = 0;
 
 			index = text.indexOf(keyword);
 			start = index-radius >= 0? index-radius: 0;
@@ -57,12 +57,12 @@
 
 		highlight: function(text, keyword, className) {
 			var regEx     = new RegExp(keyword, "g"),
-			sameChars = 0,
-			openTag   = "",
-			closeTag  = "",
-			className = this.trimBoth(className) || "",
-			text 	  = this.trimBoth(text),
-			keyword   = this.trimBoth(keyword);
+			sameChars     = 0,
+			openTag       = "",
+			closeTag      = "",
+			className     = this.trimBoth(className) || "",
+			text 	      = this.trimBoth(text),
+			keyword       = this.trimBoth(keyword);
 
 			if(className.length > 0){
 				openTag = "<span class='"+className+"'>";
@@ -119,8 +119,8 @@
 
 		htmlGenerate: function(name, attributes, contents) {
 			var autoclose = ['img','iframe'],
-			tag 	  = "<" + name;
-			contents  = contents ? contents : "";
+			tag 	      = "<" + name;
+			contents      = contents ? contents : "";
 
 			for(key in attributes){
 				tag += " " + key + "='" + attributes[key] + "'";
