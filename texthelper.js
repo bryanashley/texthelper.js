@@ -1,23 +1,24 @@
 (function(window, undefined) {
-	// Useful whitespace regEx available throughout texthelperjs.
+// Useful whitespace regEx available throughout texthelperjs.
 	var regwsGlobal = /\s+/g,
-	    regwsLeft   = /^\s+/,
-	    regwsRight  = /\s+$/,
-	    regwsBoth   = /(^\s+|\s+$)/g,
-	    regwsLarge  = /[\t\n\r]/g;
+		regwsLeft   = /^\s+/,
+		regwsRight  = /\s+$/,
+		regwsBoth   = /(^\s+|\s+$)/g,
+		regwsLarge  = /[\t\n\r]/g;
 
 	var texthelper = {
 		version: '1.0',
 
 		truncate: function(text, length, omission) {
 			var i         = 0,
-			    truncated = '',
-			    sentence  = this.trimBoth(text),
-			    omission  = this.trimBoth(omission) || '...';
+				truncated = '',
+				sentence  = this.trimBoth(text),
+				omission  = this.trimBoth(omission) || '...';
 
 			if(typeof length === 'number') {
 				length = parseInt(length);
-			} else {
+			} 
+			else {
 				return text;
 			}
 
@@ -26,10 +27,10 @@
 					if(i === sentence.length) {
 						break;	
 					}
-
 					if(i != length) {
 						truncated += sentence.charAt(i);
-					} else {
+					} 
+					else {
 						truncated = this.trimBoth(truncated);
 						truncated += omission;
 					}
@@ -39,26 +40,19 @@
 		},
 
 		excerpt: function(text, interest, radius	) {
-			var i         = 1,
-                text      = this.trimBoth(text),
-			    excerpt   = '',
-			    radius    = radius || 10,
-			    intStart  = text.indexOf(interest),
-			    excLength = interest.length + radius * 2,
-			    excLeft   = '',
-			    excRight  = '';
+			var index     = 0,
+				text      = this.trimBoth(text),
+				excerpt   = '',
+				radius    = radius || 10
+				keyword   = interest
+				start	  = 0,
+				stop	  = 0;
 
-			if(intStart > -1) {
-			    for( ; i <= radius; i++) {
-			    	excLeft  += text.charAt((intStart - (radius + 1)) + i);
-			    	excRight += text.charAt((intStart + interest.length - 1) + i);
-			    }
-
-			    excerpt += excLeft + interest + excRight;
-			    return this.trimBoth(excerpt);
-			}
-
-			return text;
+			index = text.indexOf(keyword);
+			start = index-radius >= 0? index-radius: 0;
+			stop = index+keyword.length+radius < text.length? index+keyword.length+radius: text.length;
+			excerpt = text.substring(start, stop);
+			return excerpt;
 		},
 
 		highlight: function(text, keyword, className) {
@@ -93,7 +87,7 @@
 					if(text.charAt(i) == " "){
 						difference = editedText.length - textLength;
 						test = editedText.split("");
-						test.splice(i+difference, 0, "<br/>");
+						test.splice(i+difference, 0, "<br>");
 						editedText = test.join("");
 						i += lineWidth;
 					}
@@ -124,20 +118,21 @@
 		},
 
 		htmlGenerate: function(name, attributes, contents) {
-			var autoclose = ['img', 'iframe', 'br'],
+			var autoclose = ['img','iframe'],
 				tag 	  = "<" + name;
 				contents  = contents ? contents : "";
 
 			for(key in attributes){
-        		tag += " " + key + "='" + attributes[key] + "'";
-	        }
+				tag += " " + key + "='" + attributes[key] + "'";
+			}
 
-	        if(autoclose.indexOf(name) >= 0){
-	            tag += " />"
-	        } else {
-	            tag += ">" + contents + "</" + name + ">";
-	        }
-	        return tag;
+			if(autoclose.indexOf(name) >= 0){
+				tag += " />"
+			} 
+			else {
+				tag += ">" + contents + "</" + name + ">";
+			}
+			return tag;
 		},
 
 		// Helpful utility methods.
