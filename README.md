@@ -9,6 +9,8 @@ Texthelper.js is a library of useful texthelper functions for filtering, formatt
 * wordWrap: Takes a string and a line width, this method then breaks the line at the first white space that does not exceed line width.
 * htmlEscape: This method takes a provided string and breaks any html into html_escape characters
 * htmlGenerate: This methods use allows for the creation of html tags and allows for applying attributes and contents to the generated tag
+* blacklist: This object is used by wordFilter. It contains any words to blacklist and there replacement words. blacklist has two methods; add and delete. Add allows you to pass through a JSON object of words to blacklist and their corresponding replacement words. Remove simply takes the word you would like to remove off the blacklist and removes it from the object. 
+* wordFilter: This method will take a string, and filter out any word that exists in the blacklist object and replace them with their corresponding replacement words.
 
 # Using Texthelper.js - A code sample#
 # Truncate: #
@@ -37,8 +39,14 @@ Texthelper.js is a library of useful texthelper functions for filtering, formatt
     returns: "<div class='content' id='123' style='float: left;'><h1> Main Content</h1></div>"
     texthelper.htmlGenerate("img", {src: "http://t1.gstatic.com/images?q=tbn:ANd9GcRI-OasQdJqJbQqMNLpKa99tlPvLLGyju-Z7nYM0reVe4dnfVkBOg&t=1"});
     returns: "<img src='http://t1.gstatic.com/images?q=tbn:ANd9GcRI-OasQdJqJbQqMNLpKa99tlPvLLGyju-Z7nYM0reVe4dnfVkBOg&t=1' />"
+# wordFilter and blacklist #
+    texthelper.blacklist.add({test: "t**t", blah: "b**h"});
+    texthelper.wordFilter("This is a test, blah blah blah, im still testing");
+    returns: "This is a t**t, b**h b**h b**h, im still t**ting"
+    texthelper.blacklist.remove("blah");
+    texthelper.wordFilter("This is a test, blah blah blah, im still testing");
+    returns: "This is a t**t, blah blah blah, im still t**ting"
 
-    
 
 # Copyright and Licensing #
 Copyright (c) 2012 Bryan Ashley and Mike Bonds, released under the MIT license.

@@ -26,17 +26,13 @@
 		},
 
 		excerpt: function(text, interest, radius	) {
-			var index     = 0,
-			text          = this.trimBoth(text),
+			var text      = this.trimBoth(text),
 			excerpt       = '',
-			radius        = radius || 10
-			keyword       = interest
-			start	      = 0,
-			stop	      = 0;
+			radius        = radius || 10;
 
-			index = text.indexOf(keyword);
-			start = index-radius >= 0? index-radius: 0;
-			stop = index+keyword.length+radius < text.length? index+keyword.length+radius: text.length;
+			var index = text.indexOf(interest);
+			var start = index-radius >= 0? index-radius: 0;
+			var stop = index+interest.length+radius < text.length? index+interest.length+radius: text.length;
 			excerpt = text.substring(start, stop);
 			return excerpt;
 		},
@@ -64,7 +60,7 @@
 
 		wordWrap: function(text, lineWidth) {
 			var text   = text,
-			i	   = lineWidth,
+			i	       = lineWidth,
 			textLength = text.length,
 			editedText = text,
 			difference = 0;
@@ -120,7 +116,28 @@
 			}
 			return tag;
 		},
-
+		wordFilter: function(content){
+			var content = content;
+			for(key in this.blacklist){
+				var regEx = new RegExp(key, "g");
+				if(content.indexOf(key)!= -1){
+					content = content.replace(regEx, this.blacklist[key]);
+				}
+			}
+			return content;
+		},
+		blacklist: {
+			add: function(filterContent){
+				for(key in filterContent){
+					this[key] = filterContent[key];
+				}
+			},
+			remove: function(word){
+                if(word in this){
+                    delete this[word];
+                }
+		   	}	
+		},
 		// Helpful utility methods.
 		trimBoth: function(text) {
 			return text != undefined ? text.toString().replace(regwsBoth, '') : false;
